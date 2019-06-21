@@ -1,17 +1,30 @@
-package com.flowerShop.app;
+package com.flowerShop;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
+import com.flowerShop.controler.ProductController;
 import com.flowerShop.model.Decoration;
-import com.flowerShop.model.Decoration.Material;
 import com.flowerShop.model.Flower;
-import com.flowerShop.model.FlowerShop;
-import com.flowerShop.model.Product;
-import com.flowerShop.model.Tree;
 
 public class App {
 
+	public static final int TAB_LONG1 = 20;
+	public static final int TAB_LONG2 = 40;
+	
 	public static void main(String[] args) {
+		
+		
+		ProductController myController = new ProductController();
+		
+		myController.addDecoration(100d, "madera");
+		myController.addDecoration(100d, "acero");
+		myController.addFlower(100d, "rojo");
+		myController.addTree(100d, 2d);
+		
+		System.out.println(myController.listStock());
+		
+
+		
 
 		
 ////		FlowerShop myFlowerShop = new FlowerShop("Flower Power");

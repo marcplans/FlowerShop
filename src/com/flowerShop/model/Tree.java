@@ -1,5 +1,8 @@
 package com.flowerShop.model;
 
+import com.flowerShop.App;
+import com.flowerShop.tools.Tools;
+
 public class Tree extends Product {
 
 	private Double height;
@@ -19,4 +22,8 @@ public class Tree extends Product {
 		this.height = height;
 	}
 
+	@Override
+	public String toString() {
+		return Tools.leadingString(Tools.formatHeight(getHeight()), App.TAB_LONG1) + Tools.leadingString(Tools.formatCurrency(getPrice()), App.TAB_LONG1);
+	}
 }

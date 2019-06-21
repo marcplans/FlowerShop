@@ -1,7 +1,9 @@
 package com.flowerShop.model;
 
 import com.flowerShop.App;
+import com.flowerShop.controler.ProductController;
 import com.flowerShop.tools.Tools;
+import com.flowerShop.view.View;
 
 public class Flower extends Product {
 
@@ -26,7 +28,7 @@ public class Flower extends Product {
 
 	@Override
 	public String toString() {
-		return Tools.leadingString(getColor(), App.TAB_LONG1) + Tools.leadingString(Tools.formatCurrency(getPrice()), App.TAB_LONG1);
+		return Tools.leadingString(getColor(), View.TAB_LONG1) + Tools.leadingString(Tools.formatCurrency(getPrice()), View.TAB_LONG1);
 	}
 
 

@@ -2,6 +2,7 @@ package com.flowerShop.model;
 
 import com.flowerShop.App;
 import com.flowerShop.tools.Tools;
+import com.flowerShop.view.View;
 
 public class Tree extends Product {
 
@@ -24,6 +25,6 @@ public class Tree extends Product {
 
 	@Override
 	public String toString() {
-		return Tools.leadingString(Tools.formatHeight(getHeight()), App.TAB_LONG1) + Tools.leadingString(Tools.formatCurrency(getPrice()), App.TAB_LONG1);
+		return Tools.leadingString(Tools.formatHeight(getHeight()),View.TAB_LONG1) + Tools.leadingString(Tools.formatCurrency(getPrice()), View.TAB_LONG1);
 	}
 }

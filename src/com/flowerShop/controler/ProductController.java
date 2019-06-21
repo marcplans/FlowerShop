@@ -10,8 +10,11 @@ import com.flowerShop.model.Flower;
 import com.flowerShop.model.Product;
 import com.flowerShop.model.Tree;
 import com.flowerShop.tools.Tools;
+import com.flowerShop.view.View;
 
 public class ProductController {
+	
+
 
 	private ArrayList<Product> productList = new ArrayList<>();
 
@@ -86,13 +89,13 @@ public class ProductController {
 
 		}
 
-		String output = "LISTA DE PRODUCTOS\n" + Tools.repeatString("-", App.TAB_LONG2) + "\n" + "FLORES\n"
-				+ Tools.leadingString("Color", App.TAB_LONG1) + Tools.leadingString("Precio", App.TAB_LONG1) + "\n"
-				+ Tools.repeatString("-", App.TAB_LONG2) + "\n" + flowerStock + "ÁRBOLES\n"
-				+ Tools.leadingString("Altura", App.TAB_LONG1) + Tools.leadingString("Precio", App.TAB_LONG1) + "\n"
-				+ Tools.repeatString("-", App.TAB_LONG2) + "\n" + treeStock + "DECORACIÓN\n"
-				+ Tools.leadingString("Material", App.TAB_LONG1) + Tools.leadingString("Precio", App.TAB_LONG1) + "\n"
-				+ Tools.repeatString("-", App.TAB_LONG2) + "\n" + decorationStock;
+		String output = "LISTA DE PRODUCTOS\n" + Tools.repeatString("-", View.TAB_LONG2) + "\n" + "FLORES\n"
+				+ Tools.leadingString("Color", View.TAB_LONG1) + Tools.leadingString("Precio", View.TAB_LONG1) + "\n"
+				+ Tools.repeatString("-", View.TAB_LONG2) + "\n" + flowerStock + "ÁRBOLES\n"
+				+ Tools.leadingString("Altura", View.TAB_LONG1) + Tools.leadingString("Precio", View.TAB_LONG1) + "\n"
+				+ Tools.repeatString("-", View.TAB_LONG2) + "\n" + treeStock + "DECORACIÓN\n"
+				+ Tools.leadingString("Material", View.TAB_LONG1) + Tools.leadingString("Precio", View.TAB_LONG1) + "\n"
+				+ Tools.repeatString("-", View.TAB_LONG2) + "\n" + decorationStock;
 
 		return output;
 	}

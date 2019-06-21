@@ -9,6 +9,30 @@ public class ShopController {
 	private ArrayList<FlowerShop> shopList= new ArrayList<>();
 	
 	
+	
+	
+	
+	
+	
+	
+	public ArrayList<FlowerShop> getShopList() {
+		return shopList;
+	}
+
+
+public FlowerShop getShopByName(String shopName) {
+	for (FlowerShop flowerShop : shopList) {
+		if (flowerShop.getFlowerShopName().equalsIgnoreCase(shopName)) {
+			return flowerShop;
+		}	
+	}
+	return null;
+}
+
+
+
+
+
 	//Create new shop
 	public String createNewShop (String shopName)
 	{

@@ -2,9 +2,6 @@ package com.flowerShop.view;
 
 import java.util.Scanner;
 
-import javax.sound.midi.Soundbank;
-import javax.swing.text.AttributeSet.CharacterAttribute;
-
 import com.flowerShop.controler.ProductController;
 import com.flowerShop.controler.ShopController;
 import com.flowerShop.tools.Tools;
@@ -39,11 +36,9 @@ public class View {
 		while (!exitFlag) {
 			switch (screen) {
 			case 1:
-				System.out.println("pantalla 1");
 
-				System.out.println("Bienvenido a franquicia de floristerias");
-				Tools.repeatString("-", 39);
-				System.out.println("1- Crear floristería");
+				System.out.println(Tools.tableHeader("Bienvenido a franquicia de floristerias"));
+				System.out.println("\n1- Crear floristería");
 				System.out.println("2- Salir");
 				System.out.println("Elige la opción y pulsa enter");
 
@@ -59,7 +54,7 @@ public class View {
 				break;
 
 			case 2:
-				System.out.println("pantalla 2");
+
 				// to exit
 				System.out.println("Entra nombre tienda");
 				userInput = sc.nextLine();
@@ -73,18 +68,22 @@ public class View {
 				break;
 
 			case 3:
-				System.out.println("pantalla 3");
+
 				exitFlag = true;
+				System.out.println("Gracias por tu visita! Hasta pronto!");
+				System.exit(0);
 
 				break;
 			}
 
 		}
 
+		sc.close();
 		return "";
+
 	}
 
-	public String shopMenu(String shopName) {
+	public void shopMenu(String shopName) {
 
 		Scanner sc = new Scanner(System.in);
 
@@ -96,9 +95,9 @@ public class View {
 			switch (screen) {
 			case 1:
 				// Main menu
-				System.out.println("pantalla 1");
+				System.out.println();
 				System.out.println(Tools.tableHeader("Bienvenido a floristeria " + shopName));
-				System.out.println("1- Añadir producto");
+				System.out.println("\n1- Añadir producto");
 				System.out.println("2- Lista de estoc");
 				System.out.println("3- Salir");
 				System.out.println("Elige la opción y pulsa enter");
@@ -118,6 +117,7 @@ public class View {
 
 			case 2:
 				// add product
+				System.out.println();
 				System.out.println(Tools.tableHeader("Elige tipo de producto a crear"));
 				System.out.println("1- Añadir flor");
 				System.out.println("2- Añadir arbol");
@@ -130,8 +130,10 @@ public class View {
 					addFlower(sc);
 
 				} else if (userInput.equals("2")) {
+					addTree(sc);
 
 				} else if (userInput.equals("3")) {
+					addDecoration(sc);
 
 				} else if (userInput.equals("4")) {
 					screen = 1; // goto shop menu
@@ -142,20 +144,21 @@ public class View {
 
 			case 3:
 				// stock list
-				getProductController().listStock();
+				System.out.println(getProductController().listStock());
+				screen = 1;
 
 				break;
 			case 4:
 				// exit
-				System.out.println("pantalla 3");
 				exitFlag = true;
+				System.out.println("Gracias por tu visita! Hasta pronto!");
 
 				break;
 			}
 
 		}
+		sc.close();
 
-		return "";
 	}
 
 	private void addFlower(Scanner sc) {
@@ -183,15 +186,15 @@ public class View {
 			material = sc.nextLine();
 		} while (!(material.equals("1") || material.equals("2") || material.equalsIgnoreCase("madera")
 				|| material.equalsIgnoreCase("plástico") || material.equalsIgnoreCase("plastico")));
-		
+
 		if (material.equals("1") || material.equalsIgnoreCase("madera")) {
 			material = "madera";
 		} else {
 			material = "plastico";
 		}
-			
+
 		double price = Tools.doubleScannerInput(sc, "Entra el precio:");
-		getProductController().addFlower(price, material);
+		getProductController().addDecoration(price, material);
 	}
 
 }

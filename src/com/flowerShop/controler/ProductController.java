@@ -1,13 +1,10 @@
 package com.flowerShop.controler;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-import com.flowerShop.App;
 import com.flowerShop.model.Decoration;
 import com.flowerShop.model.Decoration.Material;
 import com.flowerShop.model.Flower;
-import com.flowerShop.model.FlowerShop;
 import com.flowerShop.model.Product;
 import com.flowerShop.model.Tree;
 import com.flowerShop.tools.Tools;
@@ -22,7 +19,6 @@ public class ProductController {
 	public ArrayList<Product> getProductList() {
 		return productList;
 	}
-
 
 	public String addFlower(Double price, String color) {
 		getProductList().add(new Flower(price, color));
@@ -88,7 +84,7 @@ public class ProductController {
 
 		}
 
-		String output = "LISTA DE PRODUCTOS\n" + Tools.repeatString("-", View.TAB_LONG2) + "\n" + "FLORES\n"
+		String output = "\nLISTA DE PRODUCTOS\n" + Tools.repeatString("-", View.TAB_LONG2) + "\n" + "FLORES\n"
 				+ Tools.leadingString("Color", View.TAB_LONG1) + Tools.leadingString("Precio", View.TAB_LONG1) + "\n"
 				+ Tools.repeatString("-", View.TAB_LONG2) + "\n" + flowerStock + "ÁRBOLES\n"
 				+ Tools.leadingString("Altura", View.TAB_LONG1) + Tools.leadingString("Precio", View.TAB_LONG1) + "\n"

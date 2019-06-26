@@ -2,8 +2,6 @@ package com.flowerShop.model;
 
 import java.util.ArrayList;
 
-import com.flowerShop.model.Decoration.Material;
-
 public class FlowerShop {
 
 	private String flowerShopName;

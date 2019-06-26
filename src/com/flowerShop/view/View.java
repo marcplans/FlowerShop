@@ -127,16 +127,14 @@ public class View {
 				userInput = sc.nextLine();
 
 				if (userInput.equals("1")) {
-					// getShopController().
-
-					screen = 2; // add flower
+					addFlower(sc);
 
 				} else if (userInput.equals("2")) {
-					screen = 3; // add tree
+
 				} else if (userInput.equals("3")) {
-					screen = 4; // add decoration
+
 				} else if (userInput.equals("4")) {
-					screen = 4; // goto shop menu
+					screen = 1; // goto shop menu
 				} else {
 					System.out.println("Valor no válido, entra de nuevo");
 				}
@@ -144,6 +142,7 @@ public class View {
 
 			case 3:
 				// stock list
+				getProductController().listStock();
 
 				break;
 			case 4:
@@ -159,17 +158,40 @@ public class View {
 		return "";
 	}
 
-	private void addFlower(Scanner sc, String shopName) {
+	private void addFlower(Scanner sc) {
+		String color = "";
+		do {
+			System.out.println("Entra el color:");
+			color = sc.nextLine();
+		} while (color.isEmpty());
+		double price = Tools.doubleScannerInput(sc, "Entra el precio:");
+		getProductController().addFlower(price, color);
+	}
 
-		System.out.println("Entra el color:");
-		String color = sc.nextLine();
+	private void addTree(Scanner sc) {
+		double height = Tools.doubleScannerInput(sc, "Entra el tamaño:");
+		double price = Tools.doubleScannerInput(sc, "Entra el precio:");
+		getProductController().addTree(price, height);
+	}
 
-		System.out.println("Entra el precio:");
-		String price = sc.nextLine();
-
-		getProductController().addProductToShop(getShopController(), shopName,
-				getProductController().addFlower(1d, color));
-
+	private void addDecoration(Scanner sc) {
+		String material = "";
+		do {
+			System.out.println("Entra el material:");
+			System.out.println("1- Madera");
+			System.out.println("2- Plástico");
+			material = sc.nextLine();
+		} while (!(material.equals("1") || material.equals("2") || material.equalsIgnoreCase("madera")
+				|| material.equalsIgnoreCase("plástico") || material.equalsIgnoreCase("plastico")));
+		
+		if (material.equals("1") || material.equalsIgnoreCase("madera")) {
+			material = "madera";
+		} else {
+			material = "plastico";
+		}
+			
+		double price = Tools.doubleScannerInput(sc, "Entra el precio:");
+		getProductController().addFlower(price, material);
 	}
 
 }

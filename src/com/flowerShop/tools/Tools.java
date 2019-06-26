@@ -3,6 +3,7 @@ package com.flowerShop.tools;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.List;
+import java.util.Scanner;
 
 public class Tools {
 	
@@ -64,12 +65,46 @@ public class Tools {
 	
 	
 	
+	// Checks if string content can be converted to Double type.
+	public static boolean isNumeric(String stringToCheck) {
+		try {
+			Double.parseDouble(stringToCheck);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
+		}
+	}
 	
 	
+	// Checks if string content can be converted to Double type.
+//	public static Object parseDouble(String stringToCheck) {
+//		try {
+//			return Double.parseDouble(stringToCheck);	
+//		} catch (NumberFormatException e) {
+//			return null;
+//		}
+//	}
 	
 	
+	// Checks if string content can be converted to Double type.
+	public static double parseDouble(String stringToCheck) {
+		try {
+			return Double.parseDouble(stringToCheck);	
+		} catch (NumberFormatException e) {
+			return -1;
+		}
+	}
 	
 	
+	public static double doubleScannerInput (Scanner sc, String message) {
+		double output = -1;
+		do {
+			System.out.println(message);
+			String stringPrice = sc.nextLine();
+			output = Tools.parseDouble(stringPrice);
+		} while (output == -1);//if price -1 = is not a double input
+		return output;
+	}
 	
 	
 	

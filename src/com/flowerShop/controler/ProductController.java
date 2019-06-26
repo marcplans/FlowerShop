@@ -23,20 +23,9 @@ public class ProductController {
 		return productList;
 	}
 
-	// Add product
-	public String addProductToShop(ShopController shopController, String shopName, Product productToAdd) {
-		FlowerShop currentShop = shopController.getShopByName(shopName);
-		try {
-			currentShop.getStock().add(productToAdd);
-		} catch (Exception e) {
-			return "Error, producto no añadido!\n" + e.getMessage();
-		}
-		return "Producto añadido correctamente";
-	}
 
 	public String addFlower(Double price, String color) {
-		productList.add(new Flower(price, color));
-
+		getProductList().add(new Flower(price, color));
 		return "Producto flor añadido. Precio: " + price + " Color: " + color;
 	}
 

@@ -56,6 +56,12 @@ public class Tools {
 		return repeatString(" ", desiredLength - currentLength) + inputString;
 	}
 	
+	// Returns line of given strings space separated according
+		// to given spacings array, underlined.
+		public static String tableHeader(String title) {
+			return title + "\n" + repeatString("-", title.length());
+		}
+	
 	
 	
 	
@@ -108,12 +114,7 @@ public class Tools {
 
 
 
-	// Returns line of given strings space separated according
-	// to given spacings array, underlined.
-	public static String tableHeader(List<String> strings, List<Integer> stringSpacing) {
-		String outputString = stringLine(strings, stringSpacing);
-		return outputString + "\n" + repeatString("-", outputString.length());
-	}
+	
 
 	// Returns line of given strings space separated according
 	// to given spacings array. Negative spacing adds leading

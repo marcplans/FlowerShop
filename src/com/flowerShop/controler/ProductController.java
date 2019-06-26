@@ -7,14 +7,13 @@ import com.flowerShop.App;
 import com.flowerShop.model.Decoration;
 import com.flowerShop.model.Decoration.Material;
 import com.flowerShop.model.Flower;
+import com.flowerShop.model.FlowerShop;
 import com.flowerShop.model.Product;
 import com.flowerShop.model.Tree;
 import com.flowerShop.tools.Tools;
 import com.flowerShop.view.View;
 
 public class ProductController {
-	
-
 
 	private ArrayList<Product> productList = new ArrayList<>();
 
@@ -22,6 +21,17 @@ public class ProductController {
 
 	public ArrayList<Product> getProductList() {
 		return productList;
+	}
+
+	// Add product
+	public String addProductToShop(ShopController shopController, String shopName, Product productToAdd) {
+		FlowerShop currentShop = shopController.getShopByName(shopName);
+		try {
+			currentShop.getStock().add(productToAdd);
+		} catch (Exception e) {
+			return "Error, producto no añadido!\n" + e.getMessage();
+		}
+		return "Producto añadido correctamente";
 	}
 
 	public String addFlower(Double price, String color) {

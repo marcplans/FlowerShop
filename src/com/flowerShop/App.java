@@ -21,7 +21,7 @@ public class App {
 		System.out.println(shopController.getShopList().get(0));
 		
 		//TODO: VIEW: revisar
-		//TODO: Product View (crear y lista de estoc)
+		//TODO: Product View (crear productos  y lista de estoc)
 		
 		
 		
@@ -30,8 +30,9 @@ public class App {
 
 		// submenu // Bienvenidio a la floristeria x
 		// 1-añadir producto
-		// 1.1 Elige producto
+			// 1.1 Elige producto
 		// 2-lista de estoc
+		//3- menu anterior
 
 	}
 
